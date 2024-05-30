@@ -27,6 +27,12 @@
                Text="SCORE 0"
                FontSize="22"
                Margin="10" />
+            <TextBlock x:Name="SpeedText"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Text="Speed"
+                       FontSize="22"
+                       Margin="10"/>
             <Border x:Name="GridBoreder"
             Grid.Row="1"
             BorderBrush="{StaticResource GridLineColor}"

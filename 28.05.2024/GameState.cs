@@ -28,9 +28,10 @@ namespace _28._05._2024
             Grid = new GridValue[rows,cols];
 
             Dir = Direction.Right;
-
+            Random rand = new Random();
+            int foodTypeRand = rand.Next(100);
             AddSnake();
-            AddFood();
+            AddFood(foodTypeRand);
 
         }
         private void AddSnake()
@@ -57,7 +58,7 @@ namespace _28._05._2024
             }
         }
 
-        private void AddFood()
+        private void AddFood(int foodTypeRand)
         {
             List<Position> empty = new List<Position>(EmptyPositions());
 
@@ -66,10 +67,21 @@ namespace _28._05._2024
                 return;
             }
 
-            Position pos = empty[random.Next(empty.Count)];
-            GridValue[] foodTypes = new GridValue[] { GridValue.Avocado, GridValue.Something, GridValue.Persik };
-            GridValue randomFood = foodTypes[random.Next(foodTypes.Length)];
-            Grid[pos.Row,pos.Col] = randomFood;
+            GridValue foodType;
+            Position pos= empty[random.Next(0, empty.Count)];
+            if (foodTypeRand < 50)
+            {
+                foodType = GridValue.Food1;
+            }
+            else if(foodTypeRand < 90)
+            {
+                foodType = GridValue.Food2;
+            }
+            else
+            {
+                foodType = GridValue.Food3;
+            }
+            Grid[pos.Row,pos.Col] = foodType;
         }
 
         public Position HeadPosition()
@@ -167,23 +179,34 @@ namespace _28._05._2024
                 RemoveTail();
                 AddHead(newHeadPos);
             }
-            else if( hit  == GridValue.Avocado || hit == GridValue.Something || hit==GridValue.Persik)
+            else if(hit == GridValue.Food2)
             {
+              
                 AddHead(newHeadPos);
-                Score+=GetFoodPoints(hit);
-                AddFood();
+                Score += 10;
+                Random rand = new Random();
+                int foodTypeRand = rand.Next(100);
+                AddFood(foodTypeRand);
             }
-        }
-        private int GetFoodPoints(GridValue foodType)
-        {
-            return foodType switch
+            else if (hit == GridValue.Food1)
             {
-                GridValue.Avocado => 1,
-                GridValue.Persik => 2,
-                GridValue.Something => 3,
-   
-            };
-        }
 
+                AddHead(newHeadPos);
+                Score ++;
+                Random rand = new Random();
+                int foodTypeRand = rand.Next(100);
+                AddFood(foodTypeRand);
+            }
+            else if (hit == GridValue.Food3)
+            {
+
+                AddHead(newHeadPos);
+                Score += 50;
+                Random rand = new Random();
+                int foodTypeRand = rand.Next(100);
+                AddFood(foodTypeRand);
+            }
+
+        }
     }
 }

@@ -6,9 +6,9 @@ namespace _28._05._2024
     {
         Empty,
         Snake,
-        Persik,
-        Avocado,
-        Something,
+        Food1,
+        Food2,
+        Food3,
         Outside
     }
 }

@@ -20,9 +20,9 @@ namespace _28._05._2024
         {
             {GridValue.Empty , Images.Empty },
             {GridValue.Snake , Images.Body },
-            {GridValue.Persik , Images.Persik },
-            {GridValue.Something , Images.Something },
-            {GridValue.Avocado , Images.Avocado },
+            {GridValue.Food1 , Images.Food1 },
+            {GridValue.Food2 , Images.Food2 },
+            {GridValue.Food3 , Images.Food3 },
         };
 
         private readonly Dictionary<Direction, int> dirToRotation = new()
@@ -38,6 +38,7 @@ namespace _28._05._2024
         private readonly Image[,] gridImages;
         private GameState gameState;
         private bool gameRunning;
+        private int gameSpeed = 130, speed = 6;
       
 
         public MainWindow()
@@ -45,6 +46,7 @@ namespace _28._05._2024
             InitializeComponent();
             gridImages = SetupGrid();
             gameState = new GameState(rows, cols);
+            UpdateSpeedDisplay();
         }
 
         private async Task RunGame() 
@@ -76,14 +78,30 @@ namespace _28._05._2024
                 case Key.Down:
                     gameState.ChangeDirection(Direction.Down);
                     break;
+                case Key.Add:
+                case Key.OemPlus:
+                    gameSpeed = Math.Max(10, gameSpeed-10);
+                    speed += 1;
+                    UpdateSpeedDisplay();
+                    break;
+                case Key.Subtract:
+                case Key.OemMinus:
+                    gameSpeed +=10;
+                    speed -= 1;
+                    UpdateSpeedDisplay();
+                    break;
 
             }
+        }
+        private void UpdateSpeedDisplay()
+        {
+            SpeedText.Text = $"Speed: {speed}";
         }
         private async Task GameLoop()
         {
             while (!gameState.GameOver)
             {
-                await Task.Delay(100);
+                await Task.Delay(gameSpeed);
                 gameState.Move();
                 Draw();
             }

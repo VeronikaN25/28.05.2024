@@ -17,20 +17,29 @@
     <None Remove="Assets\DroidSansMono.ttf" />
     <None Remove="Assets\Empty.png" />
     <None Remove="Assets\Food.png" />
+    <None Remove="Assets\Food1.png" />
+    <None Remove="Assets\Food2.png" />
+    <None Remove="Assets\Food3.png" />
     <None Remove="Assets\Head.png" />
     <None Remove="Assets\icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\avocado.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Assets\Body.png" />
     <Resource Include="Assets\DeadBody.png" />
     <Resource Include="Assets\DeadHead.png" />
     <Resource Include="Assets\DroidSansMono.ttf" />
     <Resource Include="Assets\Empty.png" />
     <Resource Include="Assets\Food.png" />
+    <Resource Include="Assets\Food1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Food2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Food3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\Head.png" />
     <Resource Include="Assets\icon.ico" />
   </ItemGroup>

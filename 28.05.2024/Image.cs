@@ -9,9 +9,9 @@ namespace _28._05._2024
         public readonly static ImageSource Empty = LoadImage("Empty.png");
         public readonly static ImageSource Body = LoadImage("Body.png");
         public readonly static ImageSource Head = LoadImage("Head.png");
-        public readonly static ImageSource Persik = LoadImage("persik.png");
-        public readonly static ImageSource Something = LoadImage("something.png");
-        public readonly static ImageSource Avocado = LoadImage("avocado.png");
+        public readonly static ImageSource Food1 = LoadImage("Food1.png");
+        public readonly static ImageSource Food2 = LoadImage("Food2.png");
+        public readonly static ImageSource Food3 = LoadImage("Food3.png");
        
         public readonly static ImageSource DeadBody = LoadImage("DeadBody.png");
         public readonly static ImageSource DeadHead = LoadImage("DeadHead.png");
